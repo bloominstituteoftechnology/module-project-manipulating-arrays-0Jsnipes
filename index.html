@@ -31,8 +31,20 @@
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the array.
     // 🧠 As you have done in the past, declare a variable before you start looping, to accumulate the result.
     function sumNumsFor(nums) {
+      let result= 0
+      for (let i = 0; i < nums.length; i++){
+        let sum = nums[i]
+        if (typeof sum === 'number') {
+          if (sum === 13){
+            return "I'm too superstitious!"
+          }
+          result += sum
+        }
 
-    }
+       
+    } return result
+    
+  }
 
     // 👉 CHALLENGE 2
     // 🧠 The function stripVowels takes a string, strips all lowcase vowel letters (a,e,i,o,u) from it and returns it.
@@ -41,6 +53,16 @@
     // ❗ Notes:
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the characters of the string.
     function stripVowels(str) {
+  const split = str.split('')
+  const result = []
+  for (let  i = 0; i < split.length; i++){
+    const vow = split[i]
+    if(vow !==  'a' && vow !==  'e' && vow !==  'i' && vow !==  'o' && vow !==  'u'){
+      result.push(vow)
+    }
+  }
+    return result.join('')
+ 
 
     }
 
@@ -49,8 +71,19 @@
     // 🧠 Examples of usage:
     // sumNumsWhile([1, 2, 3]) // should return 6
     // sumNumsWhile([1, 2, 13]) // should return "I'm too superstitious!"
-    function sumNumsWhile() {
-
+    function sumNumsWhile(nums) {
+let result = 0
+let i =0
+while (i < nums.length){
+  let sum = nums[i]
+        if (typeof sum === 'number') {
+          if (sum === 13){
+            return "I'm too superstitious!"
+          }
+          result += sum
+        }
+i++
+} return result
     }
 
     // 👉 CHALLENGE 4
@@ -71,6 +104,7 @@
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
     function fightMonsters() {
+      
 
     }
 
