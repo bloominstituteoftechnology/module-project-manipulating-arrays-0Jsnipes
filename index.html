@@ -103,11 +103,17 @@ i++
     // 🧠 There are many ways to solve this, but practice using a while loop.
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
-    function fightMonsters() {
-      
-
+    function fightMonsters(lifePoints) {
+      let result;
+      let round = 1;
+      while (lifePoints>0){
+        lifePoints-=round
+       if (lifePoints <= 0){
+                return `You died in round ${round}`
+      }
+      round++
     }
-
+  }
     // 👉 CHALLENGE 5
     // 🧠 The function findEvenNums takes an array of integers as its argument.
     // 🧠 It returns a new array containing the even numbers found in the original array, in the same order.
@@ -115,9 +121,19 @@ i++
     // findEvenNums([0, 1, 2, 3, 4]) // should return [0, 2, 4]
     // ❗ Notes:
     // 🧠 Use any kind of loop you'd like and the push method to populate the array of even numbers.
-    function findEvenNums() {
-
+    function findEvenNums(ints) {
+      let evens = [];
+      for (let i in ints){
+            let num = ints[i]
+           if (num % 2 === 0){
+            evens.push(num)
+           }
+          }
+        return evens
+      
     }
+
+    
 
     // 👉 CHALLENGE 6
     // 🧠 The function separateAges takes an array of integers (ages) as its argument.
@@ -126,7 +142,19 @@ i++
     // 🧠 Ages in the subarrays should appear in the same order they appeared in the original array.
     // 🧠 Examples of usage:
     // separateAges([31, 12, 25, 65, 84, 20]) // should return [[12, 20], [31, 25, 65, 84]]
-    function separateAges() {
+    function separateAges(ages) {
+      let under = [];
+      let over = [];
+      for (let i = 0; i < ages.length; i++){
+      let age = ages[i];
+      if (age < 21){
+        under.push(age);
+      } else {
+        over.push(age);
+      }
+      }
+      return [under, over];
+
 
     }
 
@@ -137,9 +165,12 @@ i++
     // 🧠 The "tail" prop contains an array holding the elements of the array after the first one.
     // 🧠 Examples of usage:
     // headAndTail([1, 2, 3]) // should return { head: 1, tail: [2, 3] }
-    function headAndTail() {
-
+    function headAndTail(flip) {
+      let head = flip[0]
+      let tail = flip.splice(1)
+          return {head , tail}
     }
+  
 
     // 👉 CHALLENGE 8
     // 🧠 The function nestedLoops takes an array of strings as its argument.
@@ -148,9 +179,25 @@ i++
     // nestedLoops(['hello', 'goodbye']) // should return ['hEllO', 'gOOdbyE']
     // ❗ Notes:
     // 🧠 To capitalize a string you can use its toUpperCase method: "a".toUpperCase() returns "A"
-    function nestedLoops() {
+    function nestedLoops(loop) {
+      let result = []
 
+      for (let i in loop){
+        let word =loop[i]
+        let modWord= ''
+      for (let i in word){
+        let char = word[i]
+        if (char === 'a'|| char === 'e'|| char === 'i'||char === 'o'||char === 'u'){
+          let upperCased = char.toUpperCase()
+          modWord += upperCased
+        }else{
+          modWord += char
+        }
+      }
+      result.push(modWord)
     }
+    return result
+  }
 
     // 👉 CHALLENGE 9
     // 🧠 The function crazyTrimmer takes an array as its argument.
@@ -163,6 +210,12 @@ i++
     // 🧠 Practice using pop and slice.
     // 🧠 Note that pop modifies the original array in place and returns the "popped" element, whereas slice gives us a brand new array.
     function crazyTrimmer(arr) {
+      if (arr.length % 2 === 0) {
+        arr.pop()
+        return arr
+      }else {
+        return arr.slice(1, arr.length-1)
+      }
 
     }
 
